@@ -1,13 +1,10 @@
 # docker-jdk-tomcat
-FROM centos
-MAINTAINER centos_jdk_tomcat
-RUN mkdir -p /software
-COPY jdk1.8.0_20 /software/jdk1.8.0_20
-COPY apache-tomcat-7.0.56 /software/apache-tomcat-7.0.56
-ADD SCAS.war /software/apache-tomcat-7.0.56/webapps/SCAS.war
-ENV JAVA_HOME=/software/jdk1.8.0_20/
-ENV TOMCAT_HOME=/software/apache-tomcat-7.0.56/
-ENV PATH=$JAVA_HOME/bin:$TOMCAT_HOME/bin:$PATH
-ENV CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-EXPOSE 8080
-ENTRYPOINT /software/apache-tomcat-7.0.56/bin/startup.sh
+this is a dockerfile for tomcat app based on centos.Just use this file and start your docker app.
+usage:
+1、use the fllowing command to build image
+  docker build -t centos_jdk_tomcat .
+2、list all docker images
+3、start image
+  docker run -d -p 58080:8080 2d5242592b00
+  
+and then ,you can visit http://127.0.0.1:58080,
